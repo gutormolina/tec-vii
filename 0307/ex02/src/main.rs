@@ -11,10 +11,10 @@ use Shape::*;
 fn calcular_area(forma: Shape) {
 	match forma {
         Circulo(x) => {
-		    println!("Área do Círculo: {:?}", x * std::f64::consts::PI * 2.0);
+		    println!("Área do Círculo: {:?}", x.powf(2.0) * std::f64::consts::PI);
         },
         Quadrado(x) => {
-            println!("Àrea do Quadrado: {:?}", x * x);
+            println!("Àrea do Quadrado: {:?}", x.powf(2.0));
         }
 		Triangulo(x, y) => {
             println!("Área do Triângulo: {:?}", x * y / 2.0);
