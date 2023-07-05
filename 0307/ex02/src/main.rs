@@ -9,12 +9,35 @@ enum Shape {
 use Shape::*;
 
 fn calcular_area(forma: Shape) {
-	match forma = Shape.Circulo {
-		println!("Área do Círculo: {:?}", forma * std::f64::consts::PI * 2);
-			
+	match forma {
+        Circulo(x) => {
+		    println!("Área do Círculo: {:?}", x * std::f64::consts::PI * 2.0);
+        },
+        Quadrado(x) => {
+            println!("Àrea do Quadrado: {:?}", x * x);
+        }
+		Triangulo(x, y) => {
+            println!("Área do Triângulo: {:?}", x * y / 2.0);
+        }
+        Retangulo(x, y) => {
+            println!("Área do Retângulo: {:?}", x * y);
+        }
+        Nenhum => {
+            println!("Forma geométrica inválida");
+        }
+    }
 }
 
 fn main() {
-	let formaGeom = Shape::Circulo(2.0);
-	calcular_area(formaGeom);
+	let cir = Circulo(2.0);
+    let qua = Quadrado(2.0);
+    let tri = Triangulo(2.0, 4.0);
+    let ret = Retangulo(2.0, 4.0);
+    let nen = Nenhum;
+	
+    calcular_area(cir);
+    calcular_area(qua);
+    calcular_area(tri);
+    calcular_area(ret);
+    calcular_area(nen);
 }
